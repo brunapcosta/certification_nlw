@@ -43,8 +43,8 @@ public class QuestionController {
             .stream().map(alternative -> mapAlternativeDTO(alternative))
             .collect(Collectors.toList());
 
-        ((QuestionResultDTO) questionResultDTO).setAlternatives(alternativesResultDTOs);
-        return (QuestionResultDTO) questionResultDTO;
+        questionResultDTO.setAlternatives(alternativesResultDTOs);
+        return questionResultDTO;
     }
 
     static AlternativesResultDTO mapAlternativeDTO(AlternativesEntity alternativesResultDTO) {

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.nlwbrunacosta.certification_nlw.modules.students.dto.StudentCertificationAnswerDTO;
 import br.com.nlwbrunacosta.certification_nlw.modules.students.dto.VerifyHasCertificationDTO;
+import br.com.nlwbrunacosta.certification_nlw.modules.students.entities.CertificationStudentEntity;
 import br.com.nlwbrunacosta.certification_nlw.modules.students.useCases.StudentCertificationAnswersUseCase;
 import br.com.nlwbrunacosta.certification_nlw.modules.students.useCases.VerifyIfHasCertificationUseCase;
 
@@ -32,9 +33,8 @@ public class StudentController {
     }
 
     @PostMapping("/certification/answer")
-    public StudentCertificationAnswerDTO certificationAnswer(
-        @RequestBody StudentCertificationAnswerDTO studentCertificationAnswerDTO) 
-        throws Exception {
-            return this.studentCertificationAnswersUseCase.execute(studentCertificationAnswerDTO);
+    public CertificationStudentEntity certificationAnswer(
+        @RequestBody StudentCertificationAnswerDTO studentCertificationAnswerDTO) {
+            return studentCertificationAnswersUseCase.execute(studentCertificationAnswerDTO);
     }
 }
