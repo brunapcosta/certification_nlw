@@ -12,12 +12,13 @@ public class VerifyIfHasCertificationUseCase {
     @Autowired
     private CertificationStudentRepository certificationStudentRepository;
 
-    public boolean execute(VerifyHasCertificationDTO dto){
+    public boolean execute(VerifyHasCertificationDTO dto) {
 
-        var result = this.certificationStudentRepository.findByStudentEmailAndTechnology(dto.getEmail(), dto.getTechnology());
-        if(!result.isEmpty()) {
+        var result = this.certificationStudentRepository.findByStudentEmailAndTechnology(dto.getEmail(),
+                dto.getTechnology());
+        if (!result.isEmpty()) {
             return true;
         }
         return false;
-        }
     }
+}
